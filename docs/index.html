@@ -71,7 +71,7 @@
             <source src="static/teaser.mp4" type="video/mp4">
         </video>
         <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
-            Given a foreground video and background reference images, PAI-Studio synthesizes a complete video with camera-aware background motion, foreground consistency, and scene-consistent relighting at 1080P resolution.
+            Given a foreground video and background reference images, our method synthesizes a complete video with camera-aware background motion, foreground consistency, and scene-consistent relighting at 1080P resolution.
         </p>
     </div>
 </div>
@@ -102,7 +102,7 @@
     <h2>Method</h2>
     <img class="summary-img" src="static/method_fig.png" style="width:100%" alt="Method overview">
     <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
-        Overview of the PAI-Studio architecture. Multi-condition inputs are encoded into tokens and concatenated. A multi-modal attention model leverages bidirectional attention to model their global correlations. Temporal PE Cloning precisely controls the temporal placement of multiple background images.
+        Overview of the PAI-Studio architecture. Multi-condition inputs&mdash;including multiple background reference images, the illumination-perturbed foreground video, a structured prompt JSON, and the denoising video&mdash;are encoded into tokens and concatenated. A multi-modal attention model leverages bidirectional attention to model their global correlations. In addition, Temporal Positional Encoding (PE) Cloning is introduced to precisely control the temporal placement of multiple background images in the generated video.
     </p>
 </div>
 
@@ -110,7 +110,7 @@
     <h2>Dataset: CineStudio</h2>
     <img class="summary-img" src="static/data_pipeline_fig.png" style="width:100%" alt="Data pipeline">
     <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
-        Overview of the CineStudio data construction pipeline. We construct a 30K-scale dataset from high-quality films and online videos, with structured motion annotations.
+        Overview of the CineStudio data construction pipeline.
     </p>
 </div>
 
@@ -133,7 +133,7 @@
     <h2>Visual Results of Excluded Open-Source IV2V Baselines</h2>
     <img src="static/excluded_baselines.gif" style="width:100%" alt="Excluded baselines comparison">
     <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
-        When tasked with green-screen background replacement given a reference background and an input foreground video, existing models completely fail to synthesize a coherent video. They suffer from severe hallucination, identity loss, semantic misinterpretation of the green screen, or complete conditioning collapse into noise.
+        <strong>Visual results of excluded open-source IV2V baselines.</strong> When tasked with green-screen background replacement given a reference background (Column 1) and an input foreground video (Column 2), existing models completely fail to synthesize a coherent video. They suffer from severe hallucination, identity loss, semantic misinterpretation of the green screen, or complete conditioning collapse into noise.
     </p>
 </div>
 
@@ -141,25 +141,31 @@
     <h2>Edge Harmonization</h2>
     <img class="summary-img" src="static/edge_final.png" style="width:100%" alt="Edge harmonization">
     <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
-        Compared to baselines that suffer from severe green spill and boundary artifacts, our model generates clean, natural edges.
+        <strong>Superior edge harmonization.</strong> Compared to baselines that suffer from severe green spill and boundary artifacts (highlighted by red boxes), our model generates clean, natural edges without residual green contamination.
     </p>
 </div>
 
 <div class="content">
     <h2>Robustness to Imperfect Segmentation</h2>
     <img class="summary-img" src="static/segmentation.jpg" style="width:100%" alt="Segmentation robustness">
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Robustness to imperfect foreground segmentation.</strong> We highlight four challenging cases where the input green-screen videos (top rows) contain mask defects, <strong>as indicated by the red bounding boxes</strong>. These include severely corrupted body parts, arbitrary holes, and artificial occlusions. Without any explicit inpainting prompts, our model (bottom rows) robustly reconstructs the missing foreground structures while seamlessly compositing them into the generated backgrounds with global illumination and structural harmony.
+    </p>
 </div>
 
 <div class="content">
     <h2>Implicit Scene-Adaptive Relighting</h2>
     <img class="summary-img" src="static/relighting.jpg" style="width:90%" alt="Relighting results">
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Implicit scene-adaptive relighting.</strong> Our model automatically harmonizes the foreground illumination with the newly synthesized backgrounds without requiring any explicit relighting prompts or maps.
+    </p>
 </div>
 
 <div class="content">
     <h2>Multi-Frame Background Control</h2>
     <img class="summary-img" src="static/multi_frame.jpg" style="width:100%" alt="Multi-frame control">
     <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
-        3-reference control anchors the background at the beginning, middle, and end, yielding the most temporally coherent results.
+        <strong>Effect of multi-frame background control.</strong> Comparing inference results conditioned on 1, 2, and 3 background reference images. The 3-reference control effectively anchors the background at the beginning, middle, and end temporal locations, yielding the most temporally coherent results that closely match the ground truth (GT). Fewer reference frames lead to information deficits at unconditioned time steps, causing structural deviations and abrupt disappearance or morphing of background objects.
     </p>
 </div>
 
