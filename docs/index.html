@@ -171,6 +171,32 @@
     </p>
 </div>
 
+<div class="content">
+    <h2>Generalization to Unseen Regions</h2>
+    <video autoplay loop muted playsinline>
+        <source src="static/gen_unseen_1.mp4" type="video/mp4">
+    </video>
+    <video autoplay loop muted playsinline style="margin-top:12px;">
+        <source src="static/gen_unseen_2.mp4" type="video/mp4">
+    </video>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Generalization to unseen regions.</strong> Under large camera and subject motion, regions of the scene are revealed that have no corresponding background reference. Given only the first frame as the background reference, our 5B DiT synthesizes plausible textures for these newly exposed regions, mitigating severe occlusion and unseen-region gaps without any extra inference-time modules.
+    </p>
+</div>
+
+<div class="content">
+    <h2>Failure &amp; Extreme Cases</h2>
+    <video autoplay loop muted playsinline>
+        <source src="static/fail_poor_masks.mp4" type="video/mp4">
+    </video>
+    <video autoplay loop muted playsinline style="margin-top:12px;">
+        <source src="static/fail_ref_mismatch.mp4" type="video/mp4">
+    </video>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Analysis of extreme cases.</strong> (Top) <strong>Poor masks:</strong> intentionally corrupting the input foreground (green rectangle) demonstrates robust autonomous inpainting of the missing regions. (Bottom) <strong>Mismatched references:</strong> forcing a dynamic subject into a narrow background causes the model to reduce the subject's scale to fit the background layout.
+    </p>
+</div>
+
 
 </body>
 </html>
