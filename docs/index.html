@@ -193,6 +193,67 @@
     </p>
 </div>
 
+<div class="content">
+    <h2>Quantitative Comparison</h2>
+    <div style="overflow-x:auto;">
+    <table class="results" style="font-size:13px;">
+        <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="2">MSE &darr;</th>
+            <th colspan="2">SSIM &uarr;</th>
+            <th colspan="2">LPIPS &darr;</th>
+            <th colspan="2">Motion Cons. &uarr;</th>
+            <th colspan="2">Edge Quality &uarr;</th>
+            <th colspan="2">FG-BG Fusion &uarr;</th>
+            <th colspan="2">Illum. Harmony &uarr;</th>
+        </tr>
+        <tr>
+            <th>Single</th><th>Multi</th>
+            <th>Single</th><th>Multi</th>
+            <th>Single</th><th>Multi</th>
+            <th>Single</th><th>Multi</th>
+            <th>Single</th><th>Multi</th>
+            <th>Single</th><th>Multi</th>
+            <th>Single</th><th>Multi</th>
+        </tr>
+        <tr><td>VACE (Open-source)</td><td>0.0270</td><td>&ndash;</td><td>0.595</td><td>&ndash;</td><td>0.393</td><td>&ndash;</td><td>0.792</td><td>&ndash;</td><td>7.19</td><td>&ndash;</td><td>7.33</td><td>&ndash;</td><td>7.67</td><td>&ndash;</td></tr>
+        <tr><td>Kling O1 (Commercial)</td><td>0.0282</td><td>0.0190</td><td>0.646</td><td>0.682</td><td>0.402</td><td>0.341</td><td>0.706</td><td>0.721</td><td>8.44</td><td>9.04</td><td>7.88</td><td>8.20</td><td>7.62</td><td>7.44</td></tr>
+        <tr><td>Kling 3.0 Omni (Commercial)</td><td>0.0288</td><td>0.0210</td><td>0.592</td><td>0.622</td><td>0.414</td><td>0.370</td><td>0.787</td><td>0.715</td><td>8.12</td><td>8.40</td><td>7.68</td><td>7.96</td><td>7.92</td><td>7.44</td></tr>
+        <tr><td>Runway Aleph (Commercial)</td><td>0.0692</td><td>&ndash;</td><td>0.413</td><td>&ndash;</td><td>0.657</td><td>&ndash;</td><td>0.323</td><td>&ndash;</td><td>5.54</td><td>&ndash;</td><td>4.38</td><td>&ndash;</td><td>5.88</td><td>&ndash;</td></tr>
+        <tr><td>Switchx (Commercial)</td><td>0.0320</td><td>&ndash;</td><td>0.668</td><td>&ndash;</td><td>0.415</td><td>&ndash;</td><td>0.676</td><td>&ndash;</td><td>7.08</td><td>&ndash;</td><td>6.36</td><td>&ndash;</td><td>7.00</td><td>&ndash;</td></tr>
+        <tr class="ours"><td><strong>Ours</strong></td><td>0.0164</td><td>0.00645</td><td>0.717</td><td>0.789</td><td>0.303</td><td>0.197</td><td>0.872</td><td>0.894</td><td>9.17</td><td>9.62</td><td>8.46</td><td>9.33</td><td>9.11</td><td>9.61</td></tr>
+    </table>
+    </div>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        Quantitative comparison on the Cine-Restore subset under both single-frame and multi-frame settings. The last three metrics are evaluated via Gemini-based perceptual scoring <strong>(scale 1&ndash;10)</strong>, whereas the rest are standard algorithmic metrics. Multi-frame results are reported only for methods that support multi-frame control.
+    </p>
+</div>
+
+<div class="content">
+    <h2>Gemini-based Perceptual Evaluation</h2>
+    <div style="overflow-x:auto;">
+    <table class="results">
+        <tr>
+            <th>Method</th>
+            <th>Motion Cons. &uarr;</th>
+            <th>Edge Quality &uarr;</th>
+            <th>Fg. Pres. &uarr;</th>
+            <th>FG-BG Fusion &uarr;</th>
+            <th>Illum. Harmony &uarr;</th>
+        </tr>
+        <tr><td>VACE (Open-source)</td><td>6.92</td><td>7.82</td><td>2.44</td><td>7.04</td><td>8.38</td></tr>
+        <tr><td>Kling O1 (Commercial)</td><td>7.12</td><td>8.04</td><td>6.48</td><td>7.36</td><td>7.72</td></tr>
+        <tr><td>Runway Aleph (Commercial)</td><td>6.21</td><td>7.21</td><td>6.38</td><td>6.29</td><td>7.29</td></tr>
+        <tr><td>Kling 3.0 Omni (Commercial)</td><td>7.32</td><td>7.80</td><td>5.96</td><td>6.76</td><td>8.52</td></tr>
+        <tr><td>Switchx (Commercial)</td><td>7.12</td><td>7.40</td><td>8.88</td><td>6.16</td><td>7.88</td></tr>
+        <tr class="ours"><td><strong>Ours</strong></td><td>8.16</td><td>8.86</td><td>9.58</td><td>8.40</td><td>9.22</td></tr>
+    </table>
+    </div>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        Gemini-based perceptual evaluation on the Cine-NBG subset. Only Gemini-based scores <strong>(scale 1&ndash;10)</strong> are reported as no ground-truth video is available.
+    </p>
+</div>
+
 
 </body>
 </html>
