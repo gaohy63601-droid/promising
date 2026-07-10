@@ -194,6 +194,16 @@
 </div>
 
 <div class="content">
+    <h2>Ablation Study</h2>
+    <video autoplay loop muted playsinline>
+        <source src="static/ablation_ab.mp4" type="video/mp4">
+    </video>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Ablation study.</strong> (a) <strong>Illumination Adaptation:</strong> without it, the foreground lighting is not adapted to the target environment, leaving the composite poorly integrated with the background. (b) <strong>Positional Encoding:</strong> without it, the model cannot anchor the background reference images to their temporal locations, causing structural drift across the sequence. Each block compares the ablated model (top row) against the full model (bottom row) under identical background references and inputs.
+    </p>
+</div>
+
+<div class="content">
     <h2>Quantitative Comparison</h2>
     <div style="overflow-x:auto;">
     <table class="results" style="font-size:13px;">
