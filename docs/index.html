@@ -127,13 +127,15 @@
     </video>
 </div>
 
-<!-- <div class="content">
-    <h2>Comparison Results</h2>
-</div>
-
 <div class="content">
-    <h2>Ablation Study</h2>
-</div> -->
+    <h2>Comparison Results</h2>
+    <video autoplay loop muted playsinline>
+        <source src="static/comparison.mp4" type="video/mp4">
+    </video>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Qualitative comparison</strong> against the open-source method VACE and commercial systems (SwitchX, Runway Aleph, Kling 3.0 Omni, Kling O1). Given the background reference image and the green-screen input video, our method synthesizes backgrounds that stay faithful to the reference scene while preserving foreground identity, harmonizing illumination, and producing clean edges. Baselines instead exhibit reference mismatch, foreground identity drift, and boundary/compositing artifacts (highlighted by red boxes).
+    </p>
+</div>
 
 <div class="content">
     <h2>Edge Harmonization</h2>
@@ -190,6 +192,12 @@
     </video>
     <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
         <strong>Analysis of extreme cases.</strong> (Top) <strong>Poor masks:</strong> intentionally corrupting the input foreground (green rectangle) demonstrates robust autonomous inpainting of the missing regions. (Bottom) <strong>Mismatched references:</strong> forcing a dynamic subject into a narrow background causes the model to reduce the subject's scale to fit the background layout.
+    </p>
+    <video autoplay loop muted playsinline style="margin-top:12px;">
+        <source src="static/fail_case_preview.mp4" type="video/mp4">
+    </video>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">
+        <strong>Failure cases.</strong> On inputs that fall well outside the training distribution&mdash;heavily stylized hand-drawn animation and extremely fast camera/subject motion&mdash;the model degrades, producing ghosting, structural distortion, and temporal flicker in the synthesized background.
     </p>
 </div>
 
